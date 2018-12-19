@@ -11,6 +11,8 @@ const game = (state = defaultState, action) => {
         ...state,
         isStarted: true
       };
+    case 'GAME_STOP':
+      return defaultState;
     default:
       return state;
   }
