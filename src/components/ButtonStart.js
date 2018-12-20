@@ -1,27 +1,40 @@
 import React from 'react';
 
-const ButtonStart = ({ onClick = () => {} }) => (
+const buttonText = function(dif) {
+  if (dif === "mild")
+    return "NORMAL";
+  if (dif === "low")
+    return "EASY";
+  if (dif === "hard")
+    return "HARD";
+}
+
+const speed = function(dif) {
+  if (dif === "mild")
+    return 1;
+  if (dif === "low")
+    return 3;
+  if (dif === "hard")
+    return 0.5;
+}
+
+const ButtonStart = ({ difficulty = "mild", onClick = () => {} }) => (
   <div
     style={{
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      width: '300px',
-      height: '100px',
-      margin: 'auto',
+      width: '29%',
+      margin: '2%',
+      display: 'inline-block',
       fontSize: '32px',
       fontStyle: 'italic',
       textAlign: 'center',
       lineHeight: '100px',
       cursor: 'pointer',
-      backgroundColor: '#4BE072',
+      backgroundColor: '#FF5042',
       color: '#21222C'
     }}
-    onClick={onClick}
+    onClick={() => onClick(speed(difficulty))}
   >
-    START !
+    {buttonText(difficulty)}
   </div>
 );
 

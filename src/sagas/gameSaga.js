@@ -8,13 +8,14 @@ function *gameSaga() {
     yield takeEvery('DELETE_TARGET_REQUESTED', deleteTarget)
 }
 
-function *gameStart() {
+function *gameStart(action) {
     yield put({type: 'GAME_START'})
 
     let game = yield select(getGame);
     let spawnNb = 1;
     
     while (game.isStarted) {
+        console.log("djdkjfslj")
 
         if (game.lives <= 0)
             yield gameStop();
@@ -25,8 +26,6 @@ function *gameStart() {
         if (game.score >= 15)
             spawnNb = 3;
 
-        yield delay(1000);
-
         yield dieTarget();
 
         for (let i = 0; i < spawnNb; i++) {
@@ -34,8 +33,8 @@ function *gameStart() {
                 type: 'ADD_TARGET',
                 newElement: {
                     value: (Math.floor(Math.random() * 7)) + 3,
-                    x: Math.random() * 100,
-                    y: Math.random() * 100,
+                    x: 1 + Math.random() * 98,
+                    y: 1 + Math.random() * 98,
                     id: Math.random()
                 }
             })
@@ -46,6 +45,7 @@ function *gameStart() {
         })
 
         game = yield select(getGame);
+        yield delay(1000 * action.speed);
     }
 }
 

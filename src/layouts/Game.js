@@ -40,7 +40,23 @@ const GameLayout = ({ isStarted, lives, score, dispatch, targets }) => (
         }
       </React.Fragment>
     ) : (
-      <ButtonStart onClick={() => dispatch({ type: 'GAME_START_REQUESTED' })} />
+      <React.Fragment>
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            margin: 'auto',
+            width: '70%',
+            height: '20%'
+        }}>
+          <ButtonStart difficulty="low" onClick={(speed) => dispatch({ type: 'GAME_START_REQUESTED', speed: speed })} />
+          <ButtonStart difficulty="mild" onClick={(speed) => dispatch({ type: 'GAME_START_REQUESTED', speed: speed })} />
+          <ButtonStart difficulty="hard" onClick={(speed) => dispatch({ type: 'GAME_START_REQUESTED', speed: speed })} />
+        </div>
+      </React.Fragment>
     )}
   </div>
 );
