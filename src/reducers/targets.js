@@ -19,9 +19,11 @@ function target(state = defaultTargetState, action) {
 }
   
 function targets(state = [], action) {
-    console.log("bjr")
     switch (action.type) {
         case 'ADD_TARGET':
+        console.log(state)
+        console.log(action.newElement)
+        console.log([...state, action.newElement])
             return [...state, action.newElement];
         case 'DECREMENT_TARGET_VALUE':
             return state.map(t => target(t, action));
@@ -29,7 +31,7 @@ function targets(state = [], action) {
         return state.filter(t => t.id !== action.id)
         case 'DELETE_TARGET':
             return state.filter(t => t.id !== action.id)
-        case 'GAME_STOP':
+        case 'GAME_START':
             return [];
         default:
             return state;
