@@ -25,6 +25,11 @@ function *gameStart() {
             }
         })
 
+        yield put({
+            type: 'DECREMENT_TARGET_VALUE',
+            
+        })
+
         game = yield select(getGame);
     }
 }

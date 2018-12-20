@@ -13,6 +13,11 @@ const game = (state = defaultState, action) => {
       };
     case 'GAME_STOP':
       return defaultState;
+    case 'DELETE_TARGET':
+      return {
+        ...state,
+        score: state.score + 1
+      };
     default:
       return state;
   }

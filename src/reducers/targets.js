@@ -10,7 +10,7 @@ function target(state = defaultTargetState, action) {
         case 'DECREMENT_TARGET_VALUE':
             return {
                 ...state,
-                value: state.value + 1
+                value: state.value - 1
             };
 
         default:
