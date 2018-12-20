@@ -18,6 +18,11 @@ const game = (state = defaultState, action) => {
         ...state,
         score: state.score + 1
       };
+    case 'DIE_TARGET':
+      return {
+        ...state,
+        lives: state.lives - 1
+      };
     default:
       return state;
   }

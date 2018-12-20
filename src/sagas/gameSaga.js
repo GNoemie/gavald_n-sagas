@@ -18,7 +18,7 @@ function *gameStart() {
         yield put({
             type: 'ADD_TARGET',
             newElement: {
-                value: Math.floor(Math.random() *10),
+                value: (Math.floor(Math.random() * 10)) + 3,
                 x: Math.random() * 100,
                 y: Math.random() * 100,
                 id: Math.random()
@@ -26,9 +26,10 @@ function *gameStart() {
         })
 
         yield put({
-            type: 'DECREMENT_TARGET_VALUE',
-            
+            type: 'DECREMENT_TARGET_VALUE',      
         })
+
+        yield dieTarget();
 
         game = yield select(getGame);
     }
@@ -43,6 +44,17 @@ function *deleteTarget(action) {
         type: 'DELETE_TARGET',
         id: action.id
     })
+}
+
+function *dieTarget() {
+    let targets = yield select(getTargets);
+    for (let target of targets) { //foreach does not work ????
+        if (target.value <= 0)
+            yield put({
+                type: 'DIE_TARGET',
+                id: target.id
+            })
+    }
 }
 
 export default gameSaga;
