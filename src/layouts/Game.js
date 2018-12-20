@@ -34,7 +34,8 @@ const GameLayout = ({ isStarted, lives, score, dispatch, targets }) => (
 
         {
           targets.map(target => {
-            return <Target x={target.x} y={target.y} value={target.value} />
+            return <Target key={target.id} x={target.x} y={target.y} value={target.value}
+                    onClick={() => dispatch({ type: 'DELETE_TARGET_REQUESTED', id: target.id })}/>
           })
         }
       </React.Fragment>

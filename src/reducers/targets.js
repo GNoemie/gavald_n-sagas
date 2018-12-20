@@ -1,7 +1,8 @@
 const defaultTargetState = {
     value: 67,
     x: 40,
-    y: 20
+    y: 20,
+    id: 0
 };
 
 function target(state = defaultTargetState, action) {
