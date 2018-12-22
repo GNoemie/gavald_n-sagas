@@ -1,0 +1,13 @@
+Hello
+
+Here are my bonii:
+
+
+- Making targets move
+- Making targets bounce against walls
+- Add random pokemon picture for each target
+- Add pokeball cursor when in game
+- Return in menu when game ends
+
+
+Sincerely
