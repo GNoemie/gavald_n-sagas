@@ -19,7 +19,7 @@ npm run start
 
 ## Authors
 
-* **Noemie GAVALDA**
+* **Noemie G**
 * **Quentin PRE**
 
 
